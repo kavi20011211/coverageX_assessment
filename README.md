@@ -1,21 +1,20 @@
 # coverageX_assessment
-This is an assessment given by coverageX for evaluate my skills and experiences for the software engineer full stack position.
-Assignment is to create a simple SPA task manager. I have completed front-end using react/vite with typescript and back-end with node/express with typescript. 
+This repository contains my solution to the CoverageX assessment for the Full Stack Software Engineer position.  
+The assignment was to build a simple SPA task manager application.
 
-The system consist of three main components,
-Database -> Backend -> Frontned
+The system consists of three main components:
 
-1. Database -> Mysql
-2. Backend -> Node/express
-3. Frontend -> react/vite with tailwind
+1. **Database** → MySQL  
+2. **Backend** → Node.js with Express (TypeScript)  
+3. **Frontend** → React + Vite + Tailwind (TypeScript)
 
-### Testing evidence
-![screenshot](evidence/BE-test.png)
-#### Backend test evidence
 
-![screenshot](evidence/FE-test.png)
-#### Frontend test evidence
+### Testing Evidence
 
-![screenshot](evidence/E2E-test.png)
-#### Frontend test evidence
+| Test Type  | Screenshot |
+|------------|------------|
+| Backend    | ![Backend Test](evidence/BE-test.PNG) |
+| Frontend   | ![Frontend Test](evidence/FE-test.PNG) |
+| E2E        | ![E2E Test](evidence/E2E-test.PNG) |
+
 
