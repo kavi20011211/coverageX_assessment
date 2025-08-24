@@ -111,23 +111,43 @@ docker-compose exec database mysql -u todouser -p todoapp
 
 ### Backend Environment Variables
 The backend uses these environment variables (configured in docker-compose.yml):
-- `DATABASE_HOST=database`
+- `DATABASE_HOST=mysql`
 - `DATABASE_PORT=3306`
-- `DATABASE_NAME=todoapp`
-- `DATABASE_USER=todouser`
-- `DATABASE_PASSWORD=todopassword`
+- `DATABASE_NAME=assignment_todo_app_db`
+- `DATABASE_USER=root`
+- `DATABASE_PASSWORD=rootpassword`
 - `PORT=5000`
 
 ## Database Setup
 
 The MySQL database is automatically initialized with:
 - Database name: `assignment_todo_app_db`
-- User: `todouser`
-- Password: `todopassword`
-- Table: `task` (with sample data)
+- User: `root`
+- Password: `rootpassword`
+
+###Create the table using this command:
+```
+docker exec -i mysql mysql -uroot -prootpassword << EOF
+USE assignment_todo_app_db;
+CREATE TABLE IF NOT EXISTS task (
+    task_id INT AUTO_INCREMENT PRIMARY KEY,
+    topic VARCHAR(45) NOT NULL,
+    description VARCHAR(200),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+EOF
+```
+
+###If not,
+
+```
+docker exec -it mysql mysql -uroot -prootpassword assignment_todo_app_db
+```
+###then run the below sql query
 
 ### Database Schema
 ```sql
+USE assignment_todo_app_db;
 CREATE TABLE IF NOT EXISTS task (
     task_id INT AUTO_INCREMENT PRIMARY KEY,
     topic VARCHAR(45) NOT NULL,
