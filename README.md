@@ -90,7 +90,7 @@ docker-compose down -v
 docker-compose logs
 docker-compose logs backend
 docker-compose logs frontend
-docker-compose logs database
+docker-compose logs mysql
 ```
 
 ### Development Commands
@@ -104,7 +104,7 @@ docker-compose restart backend
 
 # Execute commands in running container
 docker-compose exec backend npm run test
-docker-compose exec database mysql -u todouser -p todoapp
+docker-compose exec mysql mysql -u todouser -p todoapp
 ```
 
 ## Environment Configuration
