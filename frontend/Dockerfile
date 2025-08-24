@@ -6,14 +6,14 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 
-# Copy source code
+# Copy the rest of your source
 COPY . .
 
 # Build the app
 RUN npm run build
 
-# Expose port for preview/serve
+# Expose port for preview
 EXPOSE 80
 
-# Default command (can be overridden by docker-compose exec)
+# Default command for serving frontend
 CMD ["npm", "run", "preview", "--", "--port", "80", "--host"]
