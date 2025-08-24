@@ -17,7 +17,6 @@ services:
       - coveragex-network
 
   frontend:
-    image: uvindu01/coveragex-frontend:latest
     build: ./frontend
     container_name: frontend
     ports:
@@ -29,8 +28,9 @@ services:
     networks:
       - coveragex-network
     volumes:
-      - ./frontend:/app # mount code for tests & dev
-      - /app/node_modules # keep node_modules inside container
+      - ./frontend:/app
+      - /app/node_modules
+    command: ["npm", "run", "preview", "--", "--port", "80", "--host"]
 
   mysql:
     image: mysql:8.0
@@ -45,6 +45,20 @@ services:
       - mysql_data:/var/lib/mysql
     networks:
       - coveragex-network
+
+  cypress:
+    image: cypress/base:18
+    container_name: cypress
+    working_dir: /app
+    depends_on:
+      - frontend
+      - backend
+    networks:
+      - coveragex-network
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    entrypoint: ["tail", "-f", "/dev/null"] # keeps container running for exec commands
 
 networks:
   coveragex-network:
