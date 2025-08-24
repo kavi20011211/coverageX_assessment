@@ -125,7 +125,7 @@ The MySQL database is automatically initialized with:
 - User: `root`
 - Password: `rootpassword`
 
-###Create the table using this command:
+### Create the table using this command:
 ```
 docker exec -i mysql mysql -uroot -prootpassword << EOF
 USE assignment_todo_app_db;
@@ -138,12 +138,12 @@ CREATE TABLE IF NOT EXISTS task (
 EOF
 ```
 
-###If not,
+### If not,
 
 ```
 docker exec -it mysql mysql -uroot -prootpassword assignment_todo_app_db
 ```
-###then run the below sql query
+### then run the below sql query
 
 ### Database Schema
 ```sql
