@@ -24,7 +24,7 @@ jobs:
         with:
           context: ./backend
           push: true
-          tags: uvindu01/coverageX-backend:latest
+          tags: uvindu01/coveragex-backend:latest
 
   build-and-push-frontend:
     name: Build and Push Frontend
@@ -46,4 +46,4 @@ jobs:
         with:
           context: ./frontend
           push: true
-          tags: uvindu01/coverageX-frontend:latest
+          tags: uvindu01/coveragex-frontend:latest
