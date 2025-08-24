@@ -3,7 +3,7 @@ import { defineConfig } from "cypress";
 export default defineConfig({
   e2e: {
     setupNodeEvents(on, config) {},
-    baseUrl: "http://localhost:5173",
+    baseUrl: "http://frontend:5173",
     supportFile: "cypress/support/e2e.ts",
     viewportWidth: 1280,
     viewportHeight: 720,
@@ -26,7 +26,7 @@ export default defineConfig({
   videosFolder: "cypress/videos",
   fixturesFolder: "cypress/fixtures",
   env: {
-    apiBaseUrl: "http://localhost:5000",
+    apiBaseUrl: "http://backend:5000",
   },
   chromeWebSecurity: false,
   component: {

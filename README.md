@@ -161,7 +161,13 @@ docker-compose exec frontend npm run test
 ### Frontend E2E Tests
 ```bash
 # Run E2E tests in frontend container
-docker-compose exec frontend npm run test:e2e
+docker-compose exec cypress sh
+
+npm install
+
+Xvfb :99 -screen 0 1280x1024x24 & export DISPLAY=:99
+npm run test:e2e
+
 ```
 
 ## Troubleshooting
