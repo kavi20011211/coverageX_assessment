@@ -170,18 +170,18 @@ docker-compose exec frontend npm run test:e2e
 If ports 3000, 5000, or 3306 are already in use, modify the port mappings in `docker-compose.yml`:
 ```yaml
 ports:
-  - "3001:3000"  # Frontend
-  - "5001:5000"  # Backend
+  - "5173:80"  # Frontend
+  - "5000:5000"  # Backend
   - "3307:3306"  # Database
 ```
 
 ### Database Connection Issues
 ```bash
 # Check if database is ready
-docker-compose logs database
+docker-compose logs mysql
 
 # Connect to database manually
-docker-compose exec database mysql -u todouser -ptodopassword todoapp
+docker-compose exec mysql mysql -u root -p rootpassword
 ```
 
 ### Container Build Issues
