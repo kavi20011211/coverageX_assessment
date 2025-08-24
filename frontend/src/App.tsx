@@ -293,7 +293,7 @@ const TodoApp = () => {
   const [editingTask, setEditingTask] = useState<Task | null>(null);
   const [formData, setFormData] = useState({ topic: "", description: "" });
 
-  const API_BASE = "http://localhost:5000/task";
+  const API_BASE = import.meta.env.VITE_API_URL;
 
   // Fetch all tasks
   const fetchTasks = async () => {
