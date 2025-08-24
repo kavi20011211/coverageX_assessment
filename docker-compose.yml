@@ -18,6 +18,7 @@ services:
 
   frontend:
     image: uvindu01/coveragex-frontend:latest
+    build: ./frontend
     container_name: frontend
     ports:
       - "5173:80"
@@ -27,6 +28,9 @@ services:
       - backend
     networks:
       - coveragex-network
+    volumes:
+      - ./frontend:/app # mount code for tests & dev
+      - /app/node_modules # keep node_modules inside container
 
   mysql:
     image: mysql:8.0

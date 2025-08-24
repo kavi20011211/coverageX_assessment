@@ -2,14 +2,18 @@ FROM node:18
 
 WORKDIR /app
 
+# Copy package definitions and install deps
 COPY package*.json ./
-RUN npm install && npm install -g serve
+RUN npm install
 
+# Copy source code
 COPY . .
 
 # Build the app
 RUN npm run build
 
-# Serve the build output
+# Expose port for preview/serve
 EXPOSE 80
-CMD ["serve", "-s", "dist", "-l", "80"]
+
+# Default command (can be overridden by docker-compose exec)
+CMD ["npm", "run", "preview", "--", "--port", "80", "--host"]
